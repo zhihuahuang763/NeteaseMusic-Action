@@ -13,7 +13,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    # if: github.event.repository.owner.id == github.event.actor.id
+    if: ${{ !github.event.sender.id || github.event.repository.owner.id == github.event.sender.id }}
 
     steps:
     - uses: actions/checkout@v2
@@ -23,8 +23,8 @@ jobs:
         python-version: 3.7
     - name: 签到
       run: |
-        echo ${{github.event.sender.id}}
-        echo ${{github.event.repository.owner.id}}
+        # echo ${{github.event.sender.id}}
+        # echo ${{github.event.repository.owner.id}}
         pip install -r requirements.txt
         
         user='${{ secrets.USER }}'
