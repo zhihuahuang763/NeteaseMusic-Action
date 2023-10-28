@@ -11,6 +11,18 @@ Cloned from https://github.com/Ysnsn/wangyiyun-action
 2. 修改headers2的appver为新一点的版本
 3. ~~格式化了代码~~
 
+-------
+
+20231028编辑：
+
+测试之下还是发现了一些问题：
+
+1. 刷歌数量视推荐的新歌数量而定，不完全就能一次刷到300，而频繁运行action偶尔会出现-426，所以310这个数字可以适当调大
+2. 之前作者为了避免非本人star重启action，在run.yml里加了一个if条件，（也许触发机制有变化？）这个if条件现在会使schedule被skip
+3. cron时间是utc+0时间
+
+-------
+
 以下是原说明：
 
 ## Github Actions 部署指南
